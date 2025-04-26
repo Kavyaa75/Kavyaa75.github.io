@@ -21,65 +21,48 @@
 
 <div class="section">
     <h2>Project Overview</h2>
-    <p>The <strong>OctoNyte</strong> project focuses on System-on-Chip (SoC) floor planning and design automation using OpenLane and the SkyWater 130nm PDK.<br>
-    My contributions include:</p>
-    <ul>
-        <li>Designing functional partitions and validating floor plans</li>
-        <li>Integrating standard cell libraries and optimizing macro placements</li>
-        <li>Building and validating OpenLane 1.1.1 <code>.tcl</code> configuration files</li>
-        <li>Developing YAML configurations for OpenLane2 under a Nix-shell environment</li>
-    </ul>
+    <p>The <strong>OctoNyte</strong> project involved developing a System-on-Chip (SoC) floor plan using OpenLane and the SkyWater 130nm PDK. My primary contributions included functional partitioning, library integration, macro placement optimization, OpenLane 1.1.1 configuration using TCL scripts, and YAML configuration development for OpenLane2 under a Nix-shell environment. I was responsible for completing deliverables across all four sprints, ensuring a manufacturable and reproducible layout.</p>
     <p>Project Repository: <a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte" target="_blank">Kavyaa75-OctoNyte GitHub Repository</a></p>
 </div>
 
 <div class="section">
-    <h2>Sprint Summary Table</h2>
+    <h2>Sprint Objectives</h2>
     <table>
         <tr><th>Sprint</th><th>Objective</th><th>Description</th></tr>
-        <tr><td>Sprint 1</td><td>MVP Foundation</td><td>Functional block partitioning, design validation</td></tr>
-        <tr><td>Sprint 2</td><td>Infrastructure Extension</td><td>Standard cell integration, macro placement</td></tr>
-        <tr><td>Sprint 3</td><td>Config Automation</td><td>OpenLane 1.1.1 <code>.tcl</code> flow setup</td></tr>
-        <tr><td>Sprint 4</td><td>Environment Reproducibility</td><td>OpenLane2 YAML flow setup using Nix-shell</td></tr>
+        <tr><td>Sprint 1</td><td>Minimal Viable Product</td><td>Functional block partitioning and initial floorplan validation</td></tr>
+        <tr><td>Sprint 2</td><td>Infrastructure Spike</td><td>Standard cell library integration and macro placement</td></tr>
+        <tr><td>Sprint 3</td><td>Experimental Agent Selection</td><td>Development of OpenLane 1.1.1 configuration scripts</td></tr>
+        <tr><td>Sprint 4</td><td>Working MVP</td><td>Implementation of YAML configurations under OpenLane2 in a reproducible Nix-shell environment</td></tr>
     </table>
 </div>
 
 <div class="section">
-    <h2>Summary of User Stories / Tasks</h2>
+    <h2>Summary of Tasks</h2>
     <table>
-        <tr><th>User Story</th><th>Task</th><th>My Contribution</th><th>Status</th></tr>
-        <tr><td>SoC and CPU Floor Planning</td><td>Design Partitioning (Issue #2)</td><td>Defined CPU, memory, I/O partitions</td><td>✅ Completed</td></tr>
-        <tr><td>SoC and CPU Floor Planning</td><td>Library Integration (Issue #33)</td><td>Integrated standard cells per PDK rules</td><td>✅ Completed</td></tr>
-        <tr><td>SoC and CPU Floor Planning</td><td>Macro Placement (Issue #34)</td><td>Optimized macro layout for routing & power</td><td>✅ Completed</td></tr>
-        <tr><td>SoC and CPU Floor Planning</td><td>Signal Routing Feasibility (Issue #58)</td><td>Built <code>.tcl</code> configs and YAML configs</td><td>✅ Completed</td></tr>
+        <tr><th>User Story</th><th>Task</th><th>Contribution</th><th>Status</th></tr>
+        <tr><td>SoC and CPU Floor Planning</td><td>Design Partitioning (Issue #2)</td><td>Defined and validated CPU, memory, and I/O partitions</td><td>Completed</td></tr>
+        <tr><td>SoC and CPU Floor Planning</td><td>Library Integration (Issue #33)</td><td>Integrated standard cells and validated PDK compliance</td><td>Completed</td></tr>
+        <tr><td>SoC and CPU Floor Planning</td><td>Macro Placement (Issue #34)</td><td>Optimized macro locations for performance and manufacturability</td><td>Completed</td></tr>
+        <tr><td>SoC and CPU Floor Planning</td><td>Signal Routing & Feasibility (Issue #58)</td><td>Developed TCL scripts and YAML configurations for automated flows</td><td>Completed</td></tr>
     </table>
 </div>
 
 <div class="section">
-    <h2>Highlights of My Contributions</h2>
-    <h3>Sprint 1: Design Partitioning</h3>
-    <ul>
-        <li>Divided design into functional blocks (CPU, Memory, I/O)</li>
-        <li>Validated partition alignment with SkyWater 130nm PDK rules</li>
-        <li>Commit: <a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/commit/94ddba4" target="_blank">94ddba4</a></li>
-    </ul>
+    <h2>Key Contributions with Screenshots</h2>
+    <h3>1. Functional Block Partitioning</h3>
+    <p>Allocated CPU, memory, and I/O regions within the SoC. Achieved initial partitioning validation with SkyWater design rules.</p>
 
-    <h3>Sprint 2: Library Integration & Macro Placement</h3>
-    <ul>
-        <li>Integrated standard cell libraries and optimized macro layout</li>
-        <li>Commits: <a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/commit/c938d65" target="_blank">c938d65</a> | <a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/commit/7e8dfda" target="_blank">7e8dfda</a></li>
-    </ul>
+    <h3>2. Standard Cell and Macro Placement</h3>
+    <p>Integrated standard cell libraries and optimized macro positioning to minimize congestion and power distribution challenges.</p>
 
-    <h3>Sprint 3: OpenLane 1.1.1 TCL Configs</h3>
-    <ul>
-        <li>Created and validated <code>.tcl</code> config files</li>
-        <li>Commit: <a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/commit/27b6cea" target="_blank">27b6cea</a></li>
-    </ul>
+    <h3>3. OpenLane 1.1.1 TCL Configurations</h3>
+    <p>Developed and verified configuration scripts to automate the digital implementation workflow, ensuring compatibility with OpenLane 1.1.1.</p>
 
-    <h3>Sprint 4: OpenLane2 YAML Configurations</h3>
-    <ul>
-        <li>Developed and validated YAML configuration for OpenLane2</li>
-        <li>Commit: <a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/commit/0d4df2c" target="_blank">0d4df2c</a></li>
-    </ul>
+    <h3>4. OpenLane2 YAML Configurations and Custom Register File</h3>
+    <p>Created YAML configurations for OpenLane2, executing full flow validations inside a Nix-shell. Integrated a custom-designed register file (regfile_2r1w).</p>
+
+    <h3>Register File Layout</h3>
+    <img src="Screenshot%202025-04-15%20234603.png" alt="Register File Layout" width="800">
 </div>
 
 <div class="section">
@@ -94,8 +77,8 @@
 <div class="section">
     <h2>Appendix</h2>
     <ul>
-        <li>Full Sprint Documents (Sprint 1, Sprint 2, Sprint 3, Sprint 4) available on request</li>
-        <li>Screenshots of partitioning, macro placement, and OpenLane run validations (optional)</li>
+        <li>All detailed Sprint documents available on request (Sprint 1, Sprint 2, Sprint 3, Sprint 4)</li>
+        <li>Additional screenshots of OpenLane run validations and DRC/LVS checks available on request</li>
     </ul>
 </div>
 
