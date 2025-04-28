@@ -67,6 +67,26 @@
 </div>
 
 <div class="section">
+    <h2>Hardware Block Overview and Floor Planning Context</h2>
+    <h3>ALU32 (Arithmetic Logic Unit 32-bit)</h3>
+    <p>Performs essential arithmetic (addition, subtraction) and logical operations (AND, OR, XOR) on 32-bit data.</p>
+    <h3>LoadUnit</h3>
+    <p>Handles memory load operations from data memory into processor registers, supporting LW instructions.</p>
+    <h3>RISCVAdderSubtractor</h3>
+    <p>Performs signed and unsigned addition and subtraction for instruction execution and branch decisions.</p>
+    <h3>TetraNyteCore</h3>
+    <p>Top-level RISC-V core integrating ALU, LoadUnit, Register Files, and Control Units for full pipeline operation.</p>
+    <h3>SevenSegmentDisplay</h3>
+    <p>Drives seven-segment displays to visualize binary outputs for debugging and output display purposes.</p>
+    <h3>TetraNyteCoreTimedRTL</h3>
+    <p>Timed version of TetraNyteCore for physical synthesis and timing closure in chip tape-out processes.</p>
+    <h3>mem_1w1r</h3>
+    <p>Implements a dual-port memory allowing one write and one simultaneous read per clock cycle for efficient execution.</p>
+    <h3>regfile_2r1w</h3>
+    <p>A register file with two read ports and one write port, enabling fast data access for processor operations.</p>
+</div>
+
+<div class="section">
     <h2>Repository and Code References</h2>
     <ul>
         <li><a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte" target="_blank">Main Repository</a></li>
