@@ -21,7 +21,7 @@
 
 <div class="section">
     <h2>Project Overview</h2>
-    <p>The <strong>OctoNyte</strong> project involved developing a System-on-Chip (SoC) floor plan using OpenLane and the SkyWater 130nm PDK. My primary contributions included functional partitioning, library integration, macro placement optimization, OpenLane 1.1.1 configuration using TCL scripts, and YAML configuration development for OpenLane2 under a Nix-shell environment. I was responsible for completing deliverables across all four sprints, ensuring a manufacturable and reproducible layout.</p>
+    <p>The <strong>OctoNyte</strong> project involved developing a System-on-Chip (SoC) floor plan using OpenLane and the SkyWater 130nm PDK. My primary contributions included functional partitioning, library integration, macro placement optimization, OpenLane 1.1.1 configuration using TCL scripts, and YAML configuration development for OpenLane2 under a Nix-shell environment. I completed the practical execution across all four sprints, validating the entire RTL-to-GDSII flow.</p>
     <p>Project Repository: <a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte" target="_blank">Kavyaa75-OctoNyte GitHub Repository</a></p>
 </div>
 
@@ -31,8 +31,8 @@
         <tr><th>Sprint</th><th>Objective</th><th>Description</th></tr>
         <tr><td>Sprint 1</td><td>Minimal Viable Product</td><td>Functional block partitioning and initial floorplan validation</td></tr>
         <tr><td>Sprint 2</td><td>Infrastructure Spike</td><td>Standard cell library integration and macro placement</td></tr>
-        <tr><td>Sprint 3</td><td>Experimental Agent Selection</td><td>Development of OpenLane 1.1.1 configuration scripts</td></tr>
-        <tr><td>Sprint 4</td><td>Working MVP</td><td>Implementation of YAML configurations under OpenLane2 in a reproducible Nix-shell environment</td></tr>
+        <tr><td>Sprint 3</td><td>Experimental Agent Selection</td><td>OpenLane 1.1.1 configuration scripts creation</td></tr>
+        <tr><td>Sprint 4</td><td>Working MVP</td><td>YAML-based OpenLane2 flow setup with custom register file</td></tr>
     </table>
 </div>
 
@@ -48,41 +48,41 @@
 </div>
 
 <div class="section">
-    <h2>Key Contributions with Screenshots</h2>
-    <h3>1. Functional Block Partitioning</h3>
-    <p>Allocated CPU, memory, and I/O regions within the SoC. Achieved initial partitioning validation with SkyWater design rules.</p>
+    <h2>Key Contributions with Details</h2>
 
-    <h3>2. Standard Cell and Macro Placement</h3>
-    <p>Integrated standard cell libraries and optimized macro positioning to minimize congestion and power distribution challenges.</p>
+    <h3>1. Functional Block Partitioning and Floorplanning (Sprint 1)</h3>
+    <p>Defined and allocated SoC functional blocks, including CPU, memory, and I/O regions. Floorplan validated using OpenLane against SkyWater130 design rules, ensuring manufacturability.</p>
 
-    <h3>3. OpenLane 1.1.1 TCL Configurations</h3>
-    <p>Developed and verified configuration scripts to automate the digital implementation workflow, ensuring compatibility with OpenLane 1.1.1.</p>
+    <h3>2. Standard Cell Library Integration and Macro Placement (Sprint 2)</h3>
+    <p>Integrated SkyWater standard cell libraries, optimized macro placements to minimize routing congestion, and validated against DRC/LVS rules.</p>
 
-    <h3>4. OpenLane2 YAML Configurations and Custom Register File</h3>
-    <p>Created YAML configurations for OpenLane2, executing full flow validations inside a Nix-shell. Integrated a custom-designed register file (regfile_2r1w).</p>
-</div>
+    <h3>3. OpenLane 1.1.1 Configuration and Automation (Sprint 3)</h3>
+    <p>Created and validated TCL-based OpenLane 1.1.1 configuration scripts, ensuring flow reproducibility and compatibility for physical design stages.</p>
 
-<div class="section">
-    <h2>Key Contributions with Screenshots</h2>
-    <h3>Register File Layout</h3>
+    <h3>4. OpenLane2 YAML Configuration and Custom Register File Integration (Sprint 4)</h3>
+    <p>Developed YAML configurations for OpenLane2 under Nix-shell. Integrated and validated the custom register file <code>regfile_2r1w</code> with complete RTL-to-GDSII flow execution.</p>
+
+    <h3>Register File Layout Result</h3>
     <img src="Screenshot%202025-04-13%20191343.png" alt="Register File Layout" width="800">
 </div>
-
 
 <div class="section">
     <h2>Repository and Code References</h2>
     <ul>
         <li><a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte" target="_blank">Main Repository</a></li>
+        <li><a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/tree/main/openlane/designs" target="_blank">OpenLane Design Files</a></li>
         <li><a href="https://github.com/Rivier-Computer-Science/OctoNyte/issues/1" target="_blank">User Story - GitHub Issue #1</a></li>
         <li><a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/commits/main" target="_blank">Commit History</a></li>
     </ul>
 </div>
 
 <div class="section">
-    <h2>Appendix</h2>
+    <h2>Additional Artifacts</h2>
     <ul>
-        <li>All detailed Sprint documents available on request (Sprint 1, Sprint 2, Sprint 3, Sprint 4)</li>
-        <li>Additional screenshots of OpenLane run validations and DRC/LVS checks available on request</li>
+        <li><a href="Sprint_1.docx" target="_blank">Sprint 1 Documentation</a></li>
+        <li><a href="Sprint_2.docx" target="_blank">Sprint 2 Documentation</a></li>
+        <li><a href="Sprint_3.docx" target="_blank">Sprint 3 Documentation</a></li>
+        <li><a href="Sprint_4.docx" target="_blank">Sprint 4 Documentation</a></li>
     </ul>
 </div>
 
