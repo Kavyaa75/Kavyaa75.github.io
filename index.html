@@ -29,11 +29,12 @@
     <h2>Sprint Objectives</h2>
     <table>
         <tr><th>Sprint</th><th>Objective</th><th>Description</th></tr>
-        <tr><td>Sprint 1</td><td>Minimal Viable Product</td><td>Functional block partitioning and initial floorplan validation</td></tr>
-        <tr><td>Sprint 2</td><td>Infrastructure Spike</td><td>Standard cell library integration and macro placement</td></tr>
-        <tr><td>Sprint 3</td><td>Experimental Agent Selection</td><td>OpenLane 1.1.1 configuration scripts creation</td></tr>
-        <tr><td>Sprint 4</td><td>Working MVP</td><td>YAML-based OpenLane2 flow setup with custom register file</td></tr>
+        <tr><td>Sprint 1</td><td>Minimal Viable Product</td><td>Functional block partitioning, establishing initial floorplans, and verifying design compatibility using Ubuntu 24.04.1 LTS and OpenLane tools.</td></tr>
+        <tr><td>Sprint 2</td><td>Library and Macro Placement</td><td>Integration of SkyWater standard cell libraries, macro placements across defined partitions, validation of DRC/LVS using Ubuntu 24.04.1 LTS environment.</td></tr>
+        <tr><td>Sprint 3</td><td>Configuration Automation</td><td>Development and execution of OpenLane 1.1.1 TCL scripts for complete automation of floorplanning through GDSII export workflows.</td></tr>
+        <tr><td>Sprint 4</td><td>Environment Reproducibility</td><td>Implementation of OpenLane2 YAML configuration for regfile_2r1w, validation in a controlled Nix-shell Ubuntu 24.04.1 LTS environment, ensuring reproducibility and automation.</td></tr>
     </table>
+    <p>All the sprint activities were executed on an Ubuntu 24.04.1 LTS operating system to ensure compatibility, stability, and efficient resource handling during synthesis, placement, routing, and GDSII generation workflows.</p>
 </div>
 
 <div class="section">
@@ -51,16 +52,16 @@
     <h2>Key Contributions with Details</h2>
 
     <h3>1. Functional Block Partitioning and Floorplanning (Sprint 1)</h3>
-    <p>Defined and allocated SoC functional blocks, including CPU, memory, and I/O regions. Floorplan validated using OpenLane against SkyWater130 design rules, ensuring manufacturability.</p>
+    <p>Defined and allocated SoC functional blocks, including CPU, memory, and I/O regions. Floorplan validated using OpenLane against SkyWater130 design rules, ensuring manufacturability on Ubuntu 24.04.1 LTS.</p>
 
     <h3>2. Standard Cell Library Integration and Macro Placement (Sprint 2)</h3>
-    <p>Integrated SkyWater standard cell libraries, optimized macro placements to minimize routing congestion, and validated against DRC/LVS rules.</p>
+    <p>Integrated SkyWater standard cell libraries, optimized macro placements to minimize routing congestion, and validated against DRC/LVS rules, all verified under a stable Ubuntu 24.04.1 LTS environment.</p>
 
     <h3>3. OpenLane 1.1.1 Configuration and Automation (Sprint 3)</h3>
-    <p>Created and validated TCL-based OpenLane 1.1.1 configuration scripts, ensuring flow reproducibility and compatibility for physical design stages.</p>
+    <p>Created and validated TCL-based OpenLane 1.1.1 configuration scripts, ensuring flow reproducibility and compatibility for physical design stages using Ubuntu 24.04.1 LTS tools environment.</p>
 
     <h3>4. OpenLane2 YAML Configuration and Custom Register File Integration (Sprint 4)</h3>
-    <p>Developed YAML configurations for OpenLane2 under Nix-shell. Integrated and validated the custom register file <code>regfile_2r1w</code> with complete RTL-to-GDSII flow execution.</p>
+    <p>Developed YAML configurations for OpenLane2 under Nix-shell on Ubuntu 24.04.1 LTS. Integrated and validated the custom register file <code>regfile_2r1w</code> with complete RTL-to-GDSII flow execution, ensuring reproducibility and reliability across stages.</p>
 
     <h3>Register File Layout Result</h3>
     <img src="Screenshot%202025-04-13%20191343.png" alt="Register File Layout" width="800">
