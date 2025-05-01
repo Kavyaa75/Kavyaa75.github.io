@@ -26,30 +26,53 @@
 </div>
 
 <div class="section">
-  <h2>Sprint Objectives</h2>
+  <h2>Sprint Objectives and Summary of Tasks</h2>
   <table>
-    <tr><th>Sprint</th><th>Objective</th><th>Description</th></tr>
-    <tr><td>Sprint 1</td><td>Minimal Viable Product</td><td>Functional block partitioning, initial floorplan creation, validated via Ubuntu 24.04.1 LTS.</td></tr>
-    <tr><td>Sprint 2</td><td>Library and Macro Placement</td><td>Integrated standard cells and optimized macro layout with proper DRC/LVS validation.</td></tr>
-    <tr><td>Sprint 3</td><td>Configuration Automation</td><td>Developed OpenLane 1.1.1 TCL scripts for automation of full RTL to GDS flow.</td></tr>
-    <tr><td>Sprint 4</td><td>YAML Flow Reproducibility</td><td>Executed OpenLane2 YAML flows using Nix-shell, integrating custom register file.</td></tr>
-  </table>
-</div>
-
-<div class="section">
-  <h2>Summary of Tasks</h2>
-  <table>
-    <tr><th>User Story</th><th>Task</th><th>Contribution</th><th>Status</th></tr>
-    <tr><td>SoC and CPU Floor Planning</td><td>Partitioning</td><td>Defined CPU, memory, I/O functional blocks</td><td>Completed</td></tr>
-    <tr><td>SoC and CPU Floor Planning</td><td>Library Integration</td><td>Connected Sky130 standard cells</td><td>Completed</td></tr>
-    <tr><td>SoC and CPU Floor Planning</td><td>Macro Placement</td><td>Optimized layout, ensured routing space</td><td>Completed</td></tr>
-    <tr><td>SoC and CPU Floor Planning</td><td>Flow Automation</td><td>Created TCL & YAML configuration for OpenLane1.1.1 and OpenLane2</td><td>Completed</td></tr>
+    <tr>
+      <th>Sprint</th>
+      <th>Objective</th>
+      <th>Description</th>
+      <th>Main Task</th>
+      <th>Contribution</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td>Sprint 1</td>
+      <td>Minimal Viable Product</td>
+      <td>Functional block partitioning, initial floorplan creation, validated via Ubuntu 24.04.1 LTS.</td>
+      <td>Partitioning</td>
+      <td>Defined CPU, memory, I/O functional blocks</td>
+      <td>Completed</td>
+    </tr>
+    <tr>
+      <td>Sprint 2</td>
+      <td>Library and Macro Placement</td>
+      <td>Integrated standard cells and optimized macro layout with proper DRC/LVS validation.</td>
+      <td>Library Integration</td>
+      <td>Connected Sky130 standard cells</td>
+      <td>Completed</td>
+    </tr>
+    <tr>
+      <td>Sprint 2</td>
+      <td>Library and Macro Placement</td>
+      <td>Integrated standard cells and optimized macro layout with proper DRC/LVS validation.</td>
+      <td>Macro Placement</td>
+      <td>Optimized layout, ensured routing space</td>
+      <td>Completed</td>
+    </tr>
+    <tr>
+      <td>Sprint 3</td>
+      <td>Configuration Automation</td>
+      <td>Developed OpenLane 1.1.1 TCL scripts for automation of full RTL to GDS flow.</td>
+      <td>Flow Automation</td>
+      <td>Created TCL & YAML configuration for OpenLane1.1.1 and OpenLane2</td>
+      <td>Completed</td>
+    </tr>
   </table>
 </div>
 
 <div class="section">
   <h2>Hardware Block Overview and Floor Planning Context</h2>
-
   <h3>ALU32</h3>
   <p>Arithmetic and logical operations unit. Uses 5ns clock, 0.3 core utilization, PDN pitch 6.0. Configured with standard constraints in OpenLane.</p>
 
