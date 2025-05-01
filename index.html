@@ -49,16 +49,27 @@
 
 <div class="section">
   <h2>Hardware Block Overview and Floor Planning Context</h2>
+
   <h3>ALU32</h3>
-  <p>Executed with 5ns clock, PDN pitch 6.0, 30% utilization. Arithmetic/logic block.</p>
+  <p>Arithmetic and logical operations unit. Uses 5ns clock, 0.3 core utilization, PDN pitch 6.0. Configured with standard constraints in OpenLane.</p>
+
   <h3>LoadUnit</h3>
-  <p>Executed with 5ns clock, PDN pitch 7.0. Supports memory load instructions.</p>
+  <p>Handles memory load operations into CPU registers. Uses 5ns clock, PDN pitch 7.0, 30% utilization. Optimized for stable memory interface.</p>
+
   <h3>RISCVAdderSubtractor32</h3>
-  <p>Used for signed/unsigned arithmetic, relaxed clock 10ns.</p>
+  <p>Performs signed/unsigned arithmetic for branch/ALU execution. Configured with a relaxed 10ns clock. No specific PDN/floorplan overrides.</p>
+
   <h3>TetraNyteCore_timed_rtl</h3>
-  <p>Top-level core using ALU32, LoadUnit, 5ns clock, fast DRC enabled.</p>
+  <p>Top-level integrated processor core that brings together ALU32 and LoadUnit. Uses 5ns clock, 30% utilization, and fast DRC settings enabled for optimized build flow.</p>
+
   <h3>regfile_2r1w</h3>
-  <p>2-read/1-write register file using mem_1r1w. Die size 690x230, 10ns clock, custom pin order.</p>
+  <p>Custom dual-read, single-write register file. Uses a defined die area of 690x230 with 10ns clock. Pin placement configured via pin_order.cfg for best routing strategy.</p>
+
+  <h3>mem_1r1w</h3>
+  <p>Single-read, single-write SRAM block used inside regfile_2r1w. Designed to enable fast, conflict-free memory accesses. Integrated from external source in YAML config.</p>
+
+  <h3>TetraNyteCore</h3>
+  <p>The synthesizable RISC-V core. Integrates major blocks like ALU, LoadUnit, Regfile, and Control Unit. Basis for functional simulation and synthesis under Sky130 flow.</p>
 </div>
 
 <div class="section">
