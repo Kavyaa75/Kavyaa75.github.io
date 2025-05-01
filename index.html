@@ -1,50 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - SoC and CPU Floor Planning Project</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 30px; background-color: #f9f9f9; }
-        h1, h2, h3 { color: #2c3e50; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
-        th { background-color: #eee; }
-        a { color: #3498db; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .section { margin-bottom: 40px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio - SoC and CPU Floor Planning Project</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; background-color: #f9f9f9; }
+    h1, h2, h3 { color: #2c3e50; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+    th { background-color: #eee; }
+    a { color: #3498db; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .section { margin-bottom: 40px; }
+  </style>
 </head>
 <body>
 
 <h1>SoC and CPU Floor Planning Project (OctoNyte)</h1>
 
 <div class="section">
-    <h2>Hardware Block Overview and Floor Planning Context</h2>
+  <h2>Project Overview</h2>
+  <p>The <strong>OctoNyte</strong> project involved developing a System-on-Chip (SoC) floor plan using OpenLane and the SkyWater 130nm PDK. My primary contributions included functional partitioning, library integration, macro placement optimization, OpenLane 1.1.1 configuration using TCL scripts, and YAML configuration development for OpenLane2 under a Nix-shell environment. I completed the practical execution across all four sprints, validating the entire RTL-to-GDSII flow.</p>
+  <p>Project Repository: <a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte" target="_blank">Kavyaa75-OctoNyte GitHub Repository</a></p>
+</div>
 
-    <h3>ALU32 (Arithmetic Logic Unit 32-bit)</h3>
-    <p>Performs arithmetic (addition/subtraction) and logical operations. Clocked at 5ns. Utilization set to 30%, PDN pitch 6.0μm. SDC constraints applied. Layout completed under OpenLane 1.1.1.</p>
+<div class="section">
+  <h2>Sprint Objectives</h2>
+  <table>
+    <tr><th>Sprint</th><th>Objective</th><th>Description</th></tr>
+    <tr><td>Sprint 1</td><td>Minimal Viable Product</td><td>Functional block partitioning, initial floorplan creation, validated via Ubuntu 24.04.1 LTS.</td></tr>
+    <tr><td>Sprint 2</td><td>Library and Macro Placement</td><td>Integrated standard cells and optimized macro layout with proper DRC/LVS validation.</td></tr>
+    <tr><td>Sprint 3</td><td>Configuration Automation</td><td>Developed OpenLane 1.1.1 TCL scripts for automation of full RTL to GDS flow.</td></tr>
+    <tr><td>Sprint 4</td><td>YAML Flow Reproducibility</td><td>Executed OpenLane2 YAML flows using Nix-shell, integrating custom register file.</td></tr>
+  </table>
+</div>
 
-    <h3>LoadUnit</h3>
-    <p>Manages memory read transactions to CPU registers. 5ns clock, 30% utilization, PDN pitch 7.0μm. TCL flow validated via DRC and LVS. Part of memory handling pipeline.</p>
+<div class="section">
+  <h2>Summary of Tasks</h2>
+  <table>
+    <tr><th>User Story</th><th>Task</th><th>Contribution</th><th>Status</th></tr>
+    <tr><td>SoC and CPU Floor Planning</td><td>Partitioning</td><td>Defined CPU, memory, I/O functional blocks</td><td>Completed</td></tr>
+    <tr><td>SoC and CPU Floor Planning</td><td>Library Integration</td><td>Connected Sky130 standard cells</td><td>Completed</td></tr>
+    <tr><td>SoC and CPU Floor Planning</td><td>Macro Placement</td><td>Optimized layout, ensured routing space</td><td>Completed</td></tr>
+    <tr><td>SoC and CPU Floor Planning</td><td>Flow Automation</td><td>Created TCL & YAML configuration for OpenLane1.1.1 and OpenLane2</td><td>Completed</td></tr>
+  </table>
+</div>
 
-    <h3>RISCVAdderSubtractor32</h3>
-    <p>Executes 32-bit add/subtract operations for RISC-V instruction support. Used 10ns clock for relaxed timing. Defined in OpenLane with full constraints and verified SDC compliance.</p>
+<div class="section">
+  <h2>Hardware Block Overview and Floor Planning Context</h2>
+  <h3>ALU32</h3>
+  <p>Executed with 5ns clock, PDN pitch 6.0, 30% utilization. Arithmetic/logic block.</p>
+  <h3>LoadUnit</h3>
+  <p>Executed with 5ns clock, PDN pitch 7.0. Supports memory load instructions.</p>
+  <h3>RISCVAdderSubtractor32</h3>
+  <p>Used for signed/unsigned arithmetic, relaxed clock 10ns.</p>
+  <h3>TetraNyteCore_timed_rtl</h3>
+  <p>Top-level core using ALU32, LoadUnit, 5ns clock, fast DRC enabled.</p>
+  <h3>regfile_2r1w</h3>
+  <p>2-read/1-write register file using mem_1r1w. Die size 690x230, 10ns clock, custom pin order.</p>
+</div>
 
-    <h3>TetraNyteCore</h3>
-    <p>The untimed top-level RISC-V core integrating ALU, LoadUnit, and control paths. Initial logical integration point prior to synthesis. Verified for inter-module consistency.</p>
+<div class="section">
+  <h2>Register File Layout Result</h2>
+  <img src="Screenshot%202025-04-13%20191343.png" alt="Register File Layout Output" width="800">
+</div>
 
-    <h3>TetraNyteCore_timed_rtl</h3>
-    <p>Timed synthesizable version of TetraNyteCore. Built with integrated submodules (ALU32, LoadUnit). Used 5ns clock, 30% core utilization, PDN pitch 7.0μm. Fast DRC enabled in OpenLane.</p>
+<div class="section">
+  <h2>Key Contributions</h2>
+  <ul>
+    <li>Partitioned CPU, Memory, I/O for SoC floorplan</li>
+    <li>Created and tuned OpenLane configuration files</li>
+    <li>Verified timing using custom SDC files</li>
+    <li>Completed full RTL to GDS for regfile_2r1w on Ubuntu 24.04.1 LTS</li>
+  </ul>
+</div>
 
-    <h3>SevenSegmentDisplay</h3>
-    <p>Converts binary data to human-readable output using a seven-segment display. Peripheral logic block. Synthesized and validated using default constraints. Used for debugging interface.</p>
-
-    <h3>mem_1r1w</h3>
-    <p>Single-port synchronous memory allowing 1 read and 1 write. Used as base storage for register file and memory elements. Integrated with clocked logic and floorplanned for space optimization.</p>
-
-    <h3>regfile_2r1w</h3>
-    <p>Implements dual-read, single-write register file for CPU. Backed by mem_1r1w. Die area: 690μm × 230μm (158,700μm²). Manual pin placement via pin_order.cfg. Clock period: 10ns. YAML config executed in Nix-shell using OpenLane2.</p>
+<div class="section">
+  <h2>References</h2>
+  <ul>
+    <li><a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte">GitHub Repository</a></li>
+    <li><a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/tree/main/openlane/designs">Design Directory</a></li>
+    <li><a href="https://github.com/Rivier-Computer-Science/OctoNyte/issues/1">User Story #1</a></li>
+    <li><a href="Sprint_1.docx">Sprint 1</a>, <a href="Sprint_2.docx">Sprint 2</a>, <a href="Sprint_3.docx">Sprint 3</a>, <a href="Sprint_4.docx">Sprint 4</a></li>
+  </ul>
 </div>
 
 </body>
