@@ -20,90 +20,31 @@
 <h1>SoC and CPU Floor Planning Project (OctoNyte)</h1>
 
 <div class="section">
-    <h2>Project Overview</h2>
-    <p>The <strong>OctoNyte</strong> project involved developing a System-on-Chip (SoC) floor plan using OpenLane and the SkyWater 130nm PDK. My primary contributions included functional partitioning, library integration, macro placement optimization, OpenLane 1.1.1 configuration using TCL scripts, and YAML configuration development for OpenLane2 under a Nix-shell environment. I completed the practical execution across all four sprints, validating the entire RTL-to-GDSII flow.</p>
-    <p>Project Repository: <a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte" target="_blank">Kavyaa75-OctoNyte GitHub Repository</a></p>
-</div>
-
-<div class="section">
-    <h2>Sprint Objectives</h2>
-    <table>
-        <tr><th>Sprint</th><th>Objective</th><th>Description</th></tr>
-        <tr><td>Sprint 1</td><td>Minimal Viable Product</td><td>Functional block partitioning, establishing initial floorplans, and verifying design compatibility using Ubuntu 24.04.1 LTS and OpenLane tools.</td></tr>
-        <tr><td>Sprint 2</td><td>Library and Macro Placement</td><td>Integration of SkyWater standard cell libraries, macro placements across defined partitions, validation of DRC/LVS using Ubuntu 24.04.1 LTS environment.</td></tr>
-        <tr><td>Sprint 3</td><td>Configuration Automation</td><td>Development and execution of OpenLane 1.1.1 TCL scripts for complete automation of floorplanning through GDSII export workflows.</td></tr>
-        <tr><td>Sprint 4</td><td>Environment Reproducibility</td><td>Implementation of OpenLane2 YAML configuration for regfile_2r1w, validation in a controlled Nix-shell Ubuntu 24.04.1 LTS environment, ensuring reproducibility and automation.</td></tr>
-    </table>
-    <p>All the sprint activities were executed on an Ubuntu 24.04.1 LTS operating system to ensure compatibility, stability, and efficient resource handling during synthesis, placement, routing, and GDSII generation workflows.</p>
-</div>
-
-<div class="section">
-    <h2>Summary of Tasks</h2>
-    <table>
-        <tr><th>User Story</th><th>Task</th><th>Contribution</th><th>Status</th></tr>
-        <tr><td>SoC and CPU Floor Planning</td><td>Design Partitioning (Issue #2)</td><td>Defined and validated CPU, memory, and I/O partitions</td><td>Completed</td></tr>
-        <tr><td>SoC and CPU Floor Planning</td><td>Library Integration (Issue #33)</td><td>Integrated standard cells and validated PDK compliance</td><td>Completed</td></tr>
-        <tr><td>SoC and CPU Floor Planning</td><td>Macro Placement (Issue #34)</td><td>Optimized macro locations for performance and manufacturability</td><td>Completed</td></tr>
-        <tr><td>SoC and CPU Floor Planning</td><td>Signal Routing & Feasibility (Issue #58)</td><td>Developed TCL scripts and YAML configurations for automated flows</td><td>Completed</td></tr>
-    </table>
-</div>
-
-<div class="section">
-    <h2>Key Contributions with Details</h2>
-
-    <h3>1. Functional Block Partitioning and Floorplanning (Sprint 1)</h3>
-    <p>Defined and allocated SoC functional blocks, including CPU, memory, and I/O regions. Floorplan validated using OpenLane against SkyWater130 design rules, ensuring manufacturability on Ubuntu 24.04.1 LTS.</p>
-
-    <h3>2. Standard Cell Library Integration and Macro Placement (Sprint 2)</h3>
-    <p>Integrated SkyWater standard cell libraries, optimized macro placements to minimize routing congestion, and validated against DRC/LVS rules, all verified under a stable Ubuntu 24.04.1 LTS environment.</p>
-
-    <h3>3. OpenLane 1.1.1 Configuration and Automation (Sprint 3)</h3>
-    <p>Created and validated TCL-based OpenLane 1.1.1 configuration scripts, ensuring flow reproducibility and compatibility for physical design stages using Ubuntu 24.04.1 LTS tools environment.</p>
-
-    <h3>4. OpenLane2 YAML Configuration and Custom Register File Integration (Sprint 4)</h3>
-    <p>Developed YAML configurations for OpenLane2 under Nix-shell on Ubuntu 24.04.1 LTS. Integrated and validated the custom register file <code>regfile_2r1w</code> with complete RTL-to-GDSII flow execution, ensuring reproducibility and reliability across stages.</p>
-
-    <h3>Register File Layout Result</h3>
-    <img src="Screenshot%202025-04-13%20191343.png" alt="Register File Layout" width="800">
-</div>
-
-<div class="section">
     <h2>Hardware Block Overview and Floor Planning Context</h2>
 
     <h3>ALU32 (Arithmetic Logic Unit 32-bit)</h3>
-    <p>The ALU32 module performs essential arithmetic and logical operations (addition, subtraction, AND, OR) with a 5ns clock period. Floorplanned with a core utilization of 30% and PDN pitch of 6.0 to ensure optimized timing closure and efficient layout under OpenLane on Ubuntu 24.04.1 LTS.</p>
+    <p>Performs arithmetic (addition/subtraction) and logical operations. Clocked at 5ns. Utilization set to 30%, PDN pitch 6.0μm. SDC constraints applied. Layout completed under OpenLane 1.1.1.</p>
 
     <h3>LoadUnit</h3>
-    <p>The LoadUnit facilitates memory load operations into CPU registers. Configured with a 5ns clock, 7.0 PDN pitch, and 30% core utilization to ensure stable and fast memory read operations while maintaining low routing congestion.</p>
+    <p>Manages memory read transactions to CPU registers. 5ns clock, 30% utilization, PDN pitch 7.0μm. TCL flow validated via DRC and LVS. Part of memory handling pipeline.</p>
 
     <h3>RISCVAdderSubtractor32</h3>
-    <p>Handles both signed and unsigned 32-bit additions and subtractions necessary for branch decision logic. Clocked at 10ns, allowing relaxed timing for arithmetic-heavy computation without explicitly adjusting PDN or core utilization in its configuration.</p>
+    <p>Executes 32-bit add/subtract operations for RISC-V instruction support. Used 10ns clock for relaxed timing. Defined in OpenLane with full constraints and verified SDC compliance.</p>
+
+    <h3>TetraNyteCore</h3>
+    <p>The untimed top-level RISC-V core integrating ALU, LoadUnit, and control paths. Initial logical integration point prior to synthesis. Verified for inter-module consistency.</p>
 
     <h3>TetraNyteCore_timed_rtl</h3>
-    <p>The TetraNyteCore_timed_rtl integrates the ALU32, LoadUnit, and associated control logic into a full pipeline RISC-V core. Configured for a 5ns clock, 7.0 PDN pitch, and 30% utilization, verified with fast DRC checks enabled for efficient synthesis to GDSII stages.</p>
+    <p>Timed synthesizable version of TetraNyteCore. Built with integrated submodules (ALU32, LoadUnit). Used 5ns clock, 30% core utilization, PDN pitch 7.0μm. Fast DRC enabled in OpenLane.</p>
 
-    <h3>regfile_2r1w (Register File 2-Read 1-Write)</h3>
-    <p>Implements a high-throughput register file using a dual-port memory (mem_1r1w) backend. Designed with an absolute die area of 690μm x 230μm, 10ns clock period, and manual pin ordering strategy for routing efficiency. Optimized for fast register access and minimum access latency in core operations.</p>
-</div>
+    <h3>SevenSegmentDisplay</h3>
+    <p>Converts binary data to human-readable output using a seven-segment display. Peripheral logic block. Synthesized and validated using default constraints. Used for debugging interface.</p>
 
-<div class="section">
-    <h2>Repository and Code References</h2>
-    <ul>
-        <li><a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte" target="_blank">Main Repository</a></li>
-        <li><a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/tree/main/openlane/designs" target="_blank">OpenLane Design Files</a></li>
-        <li><a href="https://github.com/Rivier-Computer-Science/OctoNyte/issues/1" target="_blank">User Story - GitHub Issue #1</a></li>
-        <li><a href="https://github.com/Kavyaa75/Kavyaa75-OctoNyte/commits/main" target="_blank">Commit History</a></li>
-    </ul>
-</div>
+    <h3>mem_1r1w</h3>
+    <p>Single-port synchronous memory allowing 1 read and 1 write. Used as base storage for register file and memory elements. Integrated with clocked logic and floorplanned for space optimization.</p>
 
-<div class="section">
-    <h2>Additional Artifacts</h2>
-    <ul>
-        <li><a href="Sprint_1.docx" target="_blank">Sprint 1 Documentation</a></li>
-        <li><a href="Sprint_2.docx" target="_blank">Sprint 2 Documentation</a></li>
-        <li><a href="Sprint_3.docx" target="_blank">Sprint 3 Documentation</a></li>
-        <li><a href="Sprint_4.docx" target="_blank">Sprint 4 Documentation</a></li>
-    </ul>
+    <h3>regfile_2r1w</h3>
+    <p>Implements dual-read, single-write register file for CPU. Backed by mem_1r1w. Die area: 690μm × 230μm (158,700μm²). Manual pin placement via pin_order.cfg. Clock period: 10ns. YAML config executed in Nix-shell using OpenLane2.</p>
 </div>
 
 </body>
